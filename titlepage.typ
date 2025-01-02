@@ -6,6 +6,7 @@
   author,
   affiliation,
   logo,
+  heading-font,
 ) = {
 
   // ----- Page-Setup ------------------------
@@ -24,11 +25,11 @@
   // ----- Title Category & Title ------------------------
   align(
     left,
-    text(font: "Ubuntu", weight: "regular", size: 14pt, 
+    text(font: heading-font, weight: "regular", size: 14pt, 
       doc-category),
   )
 
-  text(font: "Ubuntu", size: 36pt, weight: "light", fill: blue,
+  text(font: heading-font, weight: "light", size: 36pt,  fill: blue,
     doc-title,
   )
 
@@ -39,7 +40,7 @@
   align(
     left,
     text(
-      font: "Ubuntu", weight: "regular", size: 10pt, fill: black,    
+      font: heading-font, weight: "regular", size: 10pt, fill: black,    
       datetime.today().display("[day].[month].[year]") + str("\n") + author + str("\n") + 
       affiliation
     )  

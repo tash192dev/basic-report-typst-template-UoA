@@ -6,33 +6,37 @@
 #let basic-report(
   doc-category: none,
   doc-title: none,
-  doc-author: none,
+  author: none,
   affiliation: none,
   logo: none,
   language: "de",
   body,
 ) = {
 
-  set document(title: doc-title, author: doc-author)
+  // ----- Global Parameters ------------------------
+
+  set document(title: doc-title, author: author)
   set text(lang: language)
+
   counter(page).update(0)
+
+  let body-font = "Vollkorn"
+  let body-size = 11pt
+  let heading-font = "Ubuntu"
+  let in-outline = state("in-outline", true)    // are we inside or outside the outline?
 
   // ----- Title Page ------------------------
 
   titlepage(
     doc-category,
     doc-title,
-    doc-author,
+    author,
     affiliation,
     logo,
+    heading-font,
   )
 
   // ----- Basic Text- and Page-Setup ------------------------
-
-  let body-font = "Vollkorn"
-  let body-size = 11pt
-  let heading-font = "Ubuntu"
-  let in-outline = state("in-outline", true)
 
   set text(
     font: body-font,
