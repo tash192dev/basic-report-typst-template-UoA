@@ -7,6 +7,7 @@
   affiliation,
   logo,
   heading-font,             // the heading-font is also used for all text on the titlepage
+  info-size,
 ) = {
 
   // ----- Page-Setup ------------------------
@@ -45,7 +46,7 @@
   align(
     left,
     text(
-      font: heading-font, weight: "regular", size: 10pt, fill: black,    
+      font: heading-font, weight: "regular", size: info-size, fill: black,    
       datetime.today().display("[day].[month].[year]") + str("\n") + author + str("\n") + 
       affiliation
     )  

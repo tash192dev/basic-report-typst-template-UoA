@@ -18,11 +18,13 @@
   set document(title: doc-title, author: author)
   set text(lang: language)
 
-  counter(page).update(0)                       // so TOC after titlepage begins with page 1
+  counter(page).update(0)                       // so TOC after titlepage begins with page no 1 (roman)
 
   let body-font = "Vollkorn"
   let body-size = 11pt
   let heading-font = "Ubuntu"
+  let info-size = 10pt                          // heading font is used in this size for kind of "information blocks"
+  let label-size = 9pt                          // heading font is used in this size for different sorts of labels
   let in-outline = state("in-outline", true)    // are we inside or outside of the outline (for roman/arabic page numbers)?
 
   // ----- Title Page ------------------------
@@ -34,6 +36,7 @@
     affiliation,
     logo,
     heading-font,
+    info-size,
   )
 
   // ----- Basic Text- and Page-Setup ------------------------
@@ -62,9 +65,9 @@
         columns: (1fr, 1fr),
         align: (left, right),
         row-gutter: 0.5em,
-        text(font: heading-font, size: 9pt,
+        text(font: heading-font, size: label-size,
           context {hydra(1, use-last: true, skip-starting: false)},),
-        text(font: heading-font, size: 9pt, 
+        text(font: heading-font, size: label-size, 
           number-type: "lining",
           context {if in-outline.get() {
               counter(page).display("i")      // roman page numbers for the TOC
@@ -92,7 +95,7 @@
 
   set figure(numbering: "1")
   show figure.caption: it => {
-    set text(font: heading-font, size: 9pt)
+    set text(font: heading-font, size: label-size)
     block(it)
   }
 
@@ -108,7 +111,7 @@
   // top-level TOC entries in bold without filling
   show outline.entry.where(level: 1): it => {
     v(2 * body-size, weak: true)
-    set text(font: heading-font, weight: "bold", size: 10pt)
+    set text(font: heading-font, weight: "bold", size: info-size)
     it.body
     box(width: 1fr,)
     strong(it.page)
@@ -118,7 +121,7 @@
 
   // other TOC entries in regular with adapted filling
   show outline.entry.where(level: 2).or(outline.entry.where(level: 3)): it => {
-    set text(font: heading-font, size: 10pt)
+    set text(font: heading-font, size: info-size)
     it.body + "  "
     box(width: 1fr, repeat([.], gap: 2pt))
     "  " + it.page
