@@ -58,7 +58,7 @@
 
   set page(
     paper: "a4",
-    margin: (top: 4cm, left: 4.3cm, right: 3.6cm, bottom: 2.5cm),
+    margin: (top: 4cm, left: 4.3cm, right: 3.6cm, bottom: 3.5cm),
     // the header shows the main chapter heading  on the left and the page number on the right
     header:  
       grid(

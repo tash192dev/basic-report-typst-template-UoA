@@ -13,7 +13,7 @@
   // ----- Page-Setup ------------------------
   set page(
     paper: "a4",
-    margin: (top: 2.8cm, left: 4.3cm, right: 3.6cm, bottom: 2.5cm),
+    margin: (top: 2.8cm, left: 4.3cm, right: 3.6cm, bottom: 3.5cm),
   )
 
   // Some basic rules for the titlepage layout:
@@ -30,7 +30,7 @@
 
   // ----- Title Category & Title ------------------------
   align(
-    left,                   // 14pt + 36 pt = 1 x 3.5 cm
+    left,                   // 14pt + 36 pt ≈ 1 x 3.5 cm
     text(font: heading-font, weight: "regular", size: 14pt, 
       doc-category),
   )
@@ -47,7 +47,8 @@
     left,
     text(
       font: heading-font, weight: "regular", size: info-size, fill: black,    
-      datetime.today().display("[day].[month].[year]") + str("\n") + author + str("\n") + 
+      datetime.today().display("[day].[month].[year]") + str("\n") + 
+      author + str("\n") + 
       affiliation
     )  
   )
