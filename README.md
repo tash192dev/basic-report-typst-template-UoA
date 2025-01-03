@@ -14,6 +14,15 @@ The TOC uses roman page numbers, the rest of the document arabic numbers.
 
 ## Usage
 
+You can use this template in the Typst web app by clicking "Start from template" on the dashboard and searching for `basic-report`.
+
+Alternatively, you can use the CLI to kick this project off using the command
+
+```shell
+typst init @preview/basic-report
+```
+
+Typst will create a new directory with all the files needed to get you started.
 
 ## Fonts
 
