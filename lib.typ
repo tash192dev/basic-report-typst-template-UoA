@@ -58,7 +58,12 @@
 
   set page(
     paper: "a4",
-    margin: (top: 4cm, left: 4.3cm, right: 3.6cm, bottom: 3.5cm),
+    // horizontal 1.5cm-grid = 14u: 3u left margin, 9u text, 2u right margin
+    //     Idea: one-sided document; if printed on paper, the pages are often bound or stapled
+    //     on the left side; so more space needed on the left. On-screen it doesn't matter.
+    // vertical 1.5cm-grid ≈ 20u: 2u top margin, 14u text, 2u botttom margin
+    //     header with height ≈ 0.6cm is visually part of text block --> top margin = 3cm + 0.6cm
+    margin: (top: 3.6cm, left: 4.5cm, right: 3cm, bottom: 3cm),
     // the header shows the main chapter heading  on the left and the page number on the right
     header:  
       grid(
@@ -117,7 +122,7 @@
     strong(it.page)
   }
 
-  // TO-DO: https://forum.typst.app/t/how-to-customize-outline-entry-filling-per-level/1211/2?u=roland_schatzle
+  // TO-DO: https://forum.typst.app/t/how-to-customize-outline-entry-filling-per-level/1211/2?u=roland_schatzle --> toc entries as links
 
   // other TOC entries in regular with adapted filling
   show outline.entry.where(level: 2).or(outline.entry.where(level: 3)): it => {
@@ -128,7 +133,7 @@
   }
 
   outline(
-    title: "Inhalt",
+    title: "Inhalt",          // TO-DO: internationalization
     indent: auto,
   )
 
