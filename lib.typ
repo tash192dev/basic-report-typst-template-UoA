@@ -133,7 +133,27 @@
   }
 
   outline(
-    title: "Inhalt",          // TO-DO: internationalization
+    title: if language == "de" { 
+      "Inhalt"
+    } else if language == "fr" {
+      "Table des matières"
+    } else if language == "es" {
+      "Contenido"
+    } else if language == "it" {
+      "Indice"
+    } else if language == "pt" {
+      "Índice"
+    } else if language == "zh" {
+      "目录"
+    } else if language == "ja" {
+      "目次"
+    } else if language == "ru" {
+      "Содержание"
+    } else if language == "ar" {
+      "المحتويات"
+    } else {
+      "Table of contents"
+    },
     indent: auto,
   )
 
