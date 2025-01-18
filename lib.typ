@@ -152,7 +152,7 @@
     } else if language == "ar" {
       "المحتويات"
     } else {
-      "Table of contents"
+      "Contents"
     },
     indent: auto,
   )
