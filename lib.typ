@@ -10,6 +10,7 @@
   affiliation: none,
   logo: none,
   language: "de",
+  show-outline: true,
   body,
 ) = {
 
@@ -132,32 +133,37 @@
     "  " + it.page
   }
 
-  outline(
-    title: if language == "de" { 
-      "Inhalt"
-    } else if language == "fr" {
-      "Table des matières"
-    } else if language == "es" {
-      "Contenido"
-    } else if language == "it" {
-      "Indice"
-    } else if language == "pt" {
-      "Índice"
-    } else if language == "zh" {
-      "目录"
-    } else if language == "ja" {
-      "目次"
-    } else if language == "ru" {
-      "Содержание"
-    } else if language == "ar" {
-      "المحتويات"
-    } else {
-      "Contents"
-    },
-    indent: auto,
-  )
+  if show-outline {
+    outline(
+      title: if language == "de" { 
+        "Inhalt"
+      } else if language == "fr" {
+        "Table des matières"
+      } else if language == "es" {
+        "Contenido"
+      } else if language == "it" {
+        "Indice"
+      } else if language == "pt" {
+        "Índice"
+      } else if language == "zh" {
+        "目录"
+      } else if language == "ja" {
+        "目次"
+      } else if language == "ru" {
+        "Содержание"
+      } else if language == "ar" {
+        "المحتويات"
+      } else {
+        "Contents"
+      },
+      indent: auto,
+    )
+    counter(page).update(0)     // so the first chapter starts at page 1 (now in arabic numbers)
+  } else {
+    in-outline.update(false)    // even if outline is not shown, we want to continue with arabic page numbers
+    counter(page).update(1)
+  }
 
-  counter(page).update(0)     // so the first chapter starts at page 1 (now in arabic numbers)
   pagebreak()
 
   // ----- Body Text ------------------------

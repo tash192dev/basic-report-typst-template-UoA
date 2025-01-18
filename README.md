@@ -48,5 +48,6 @@ The template exports one function `basic-report` with the following named parame
 -  `affiliation (str)`: Organisation/Company etc.
 -  `logo (image)`: an `image` (usage: e.g. `image("path/to/image.svg")`)
 -  `language (str)`: Language of the document (default is "de")
+-  `show-outline (boolean)`: Show the outline (default is `true`)
 
 Have a look at the example file [`main.typ`](https://github.com/roland-KA/basic-report-typst-template/blob/main/template/main.typ) whithin the [`template`](https://github.com/roland-KA/basic-report-typst-template/tree/main/template) directory on how to use the `basic-report`-function with these parameters.
