@@ -1,6 +1,6 @@
 # Basic Report
 
-A [Typst](https://typst.app/home/) template for shorter non-fiction documents like reports, manuals, requirements documentation, student assignments etc. An example document (PDF) that shows how it looks like, can be found [here](https://github.com/roland-KA/basic-report-typst-template/blob/main/template/main.pdf).
+A [Typst](https://typst.app/home/) template for shorter non-fiction documents like reports, manuals, requirements documentation, student assignments etc. An example document (PDF) that shows how it looks like, can be found [here](https://github.com/roland-KA/basic-report-typst-template/blob/main/examples/main.pdf).
 
 The template comes without bells and whistles and consists just of
 - a titlepage with
