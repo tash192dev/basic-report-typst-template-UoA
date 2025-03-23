@@ -7,6 +7,7 @@
   affiliation,
   logo,
   heading-font,             // the heading-font is also used for all text on the titlepage
+  heading-color,            // heading-color applies as well for the title
   info-size,                // used throughout the document for "info text"
 ) = {
 
@@ -35,7 +36,7 @@
       doc-category),
   )
 
-  text(font: heading-font, weight: "light", size: 36pt,  fill: blue,
+  text(font: heading-font, weight: "light", size: 36pt,  fill: heading-color,
     doc-title,
   )
 

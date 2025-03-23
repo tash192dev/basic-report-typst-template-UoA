@@ -11,6 +11,7 @@
   logo: none,
   language: "de",
   show-outline: true,
+  heading-color: blue,
   body,
 ) = {
 
@@ -37,6 +38,7 @@
     affiliation,
     logo,
     heading-font,
+    heading-color,
     info-size,
   )
 
@@ -91,7 +93,7 @@
 
   set heading(numbering: "1.")
   show heading: it => {
-    set text(font: heading-font, fill: blue, weight: "regular")
+    set text(font: heading-font, fill: heading-color, weight: "regular")
     block(it,  
       height: 1 * body-size, 
       above:  2 * body-size, 
