@@ -118,21 +118,30 @@
  
   // top-level TOC entries in bold without filling
   show outline.entry.where(level: 1): it => {
-    v(2 * body-size, weak: true)
+    //v(2 * body-size, weak: true)
+    set block(above: 2 * body-size)
     set text(font: heading-font, weight: "bold", size: info-size)
-    it.body
-    box(width: 1fr,)
-    strong(it.page)
+    link(
+      it.element.location(),    // make entry linkable
+      it.indented(it.prefix(), it.body() + box(width: 1fr,) +  strong(it.page()))
+    )
   }
 
   // TO-DO: https://forum.typst.app/t/how-to-customize-outline-entry-filling-per-level/1211/2?u=roland_schatzle --> toc entries as links
 
   // other TOC entries in regular with adapted filling
   show outline.entry.where(level: 2).or(outline.entry.where(level: 3)): it => {
+    set block(above: 0.8 * body-size)
     set text(font: heading-font, size: info-size)
-    it.body + "  "
-    box(width: 1fr, repeat([.], gap: 2pt))
-    "  " + it.page
+    link(
+      it.element.location(),  // make entry linkable
+      it.indented(
+          it.prefix(),
+          it.body() + "  " +
+            box(width: 1fr, repeat([.], gap: 2pt)) +
+            "  " + it.page()
+      )
+    )
   }
 
   if show-outline {
