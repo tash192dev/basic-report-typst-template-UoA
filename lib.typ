@@ -1,4 +1,4 @@
-#import "@preview/hydra:0.5.1": hydra
+#import "@preview/hydra:0.6.0": hydra
 #import "titlepage.typ": *
 
 // ----- Main Template Function: `basic-report` ----------------------
@@ -74,7 +74,7 @@
         align: (left, right),
         row-gutter: 0.5em,
         text(font: heading-font, size: label-size,
-          context {hydra(1, use-last: true, skip-starting: false)},),
+          context {hydra(1, use-last: false, skip-starting: false)},),
         text(font: heading-font, size: label-size, 
           number-type: "lining",
           context {if in-outline.get() {
