@@ -1,4 +1,7 @@
-// ----- Title Page ------------------------
+// ===== Functions for TITLE PAGE and COMPACT TITLE ===============
+
+
+// ===== TITLE PAGE: `titlepage` ====================
 
 #let titlepage(
   doc-category,
@@ -52,4 +55,39 @@
       affiliation),
   )
 
+}
+
+// ===== COMPACT TITLE: `compact-title` ====================
+
+#let compact-title(
+  doc-category,
+  doc-title,
+  author,
+  affiliation,
+  logo,
+  heading-font,             // the heading-font is also used for all text on the titlepage
+  heading-color,            // heading-color applies as well for the title
+  info-size,                // used throughout the document for "info text"
+  body-size,
+  label-size,
+) = {
+  stack(
+      v(1.5cm - 0.6cm),     // 3.6cm top-margin -0.6cm + 1.5cm = 4.5cm 
+      box(height: 1.5cm, 
+        text(font: heading-font, size: 1 * body-size, 
+          top-edge: "ascender",
+          doc-category) ),
+      box(height: 6cm, 
+        text(font: heading-font, weight: "bold",
+          size: 2 * body-size, fill: luma(40%).mix(heading-color),
+          top-edge: "ascender",
+          hyphenate: false,
+              doc-title) + "\n\n" +
+        text(font: heading-font, size: label-size,
+          author + "\n" + 
+          affiliation + ", " + 
+          datetime.today().display("[day].[month].[year]")
+        )  
+      ),
+    )
 }
