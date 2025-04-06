@@ -12,7 +12,7 @@ The template comes without bells and whistles and consists just of
 
 The TOC uses roman page numbers, the rest of the document arabic numbers.
 
-For documents with only a few pages there is often no need for an outline and a separate title page. For these documents there is a `compact-mode`, where title information is shown on the first text page.
+For documents with only a few pages there is often no need for an outline and a separate title page. For these documents there is a `compact-mode`, where title information is shown on the first text page. An example for this mode can be found [here](https://github.com/roland-KA/basic-report-typst-template/blob/main/examples/mainCompact.pdf)
 
 ## Usage
 
