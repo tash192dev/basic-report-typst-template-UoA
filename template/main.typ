@@ -1,5 +1,5 @@
 
-#import "@preview/basic-report:0.1.2": *
+#import "@preview/basic-report:0.2.0": *
 
 #show: it => basic-report(
   doc-category: "Betriebsanleitung",
@@ -9,6 +9,7 @@
   logo: image("assets/aerospace-engineering.png", width: 2cm),
   // <a href="https://www.flaticon.com/free-icons/aerospace" title="aerospace icons">Aerospace icons created by gravisio - Flaticon</a>
   language: "de",
+  compact-mode: false,
   it
 )
 
