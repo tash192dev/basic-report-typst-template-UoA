@@ -58,12 +58,12 @@
     size: body-size,
     // Vollkorn has a broader stroke than other fonts; in order to adapt the grey value (Grauwert)
     // of the page the font gets printed in a dark grey (instead of completely black)
-    fill: luma(80)
+    fill: luma(50)
   )
 
   set par(
     justify: true,
-    leading: 0.65em,
+    leading: 0.75em,
     spacing: 1.65em,
     first-line-indent: 0em,
   )
@@ -105,17 +105,15 @@
   )
 
   
-  // ----- Numbering Schemes ------------------------
+  // ----- Headings & Numbering Schemes ------------------------
 
   set heading(numbering: "1.")
-  show heading: it => {
-    set text(font: heading-font, fill: heading-color, weight: "regular")
-    block(it,  
-      height: 1 * body-size, 
-      above:  2 * body-size, 
-      below:  1 * body-size, 
-      sticky: true)
-  }
+  show heading: set text(font: heading-font, fill: heading-color, 
+      weight: if compact-mode {"bold"} else {"regular"})
+
+  show heading.where(level: 1): it => {v(3.8 * body-size, weak: true) + block(it, height: 1.2 * body-size, sticky: true)}
+  show heading.where(level: 2): it => {v(0.8 * body-size) + block(it, height: 1.2 * body-size, sticky: true)}
+  show heading.where(level: 3): it => {v(0.8 * body-size) + block(it, height: 1 * body-size, sticky: true)}
 
   set figure(numbering: "1")
   show figure.caption: it => {

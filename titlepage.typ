@@ -77,12 +77,13 @@
         text(font: heading-font, size: 1 * body-size, 
           top-edge: "ascender",
           doc-category) ),
-      box(height: 6cm, 
-        text(font: heading-font, weight: "bold",
-          size: 2 * body-size, fill: luma(40%).mix(heading-color),
-          top-edge: "ascender",
-          hyphenate: false,
-              doc-title) + "\n\n" +
+      box(height: 6cm,
+        par(leading: 0.5em,
+          text(font: heading-font, weight: "bold",
+            size: 2 * body-size, fill: luma(40%).mix(heading-color),
+            top-edge: "ascender",
+            hyphenate: false,
+                doc-title) + "\n\n") +
         text(font: heading-font, size: label-size,
           author + "\n" + 
           affiliation + ", " + 
