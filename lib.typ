@@ -13,6 +13,7 @@
   show-outline: true,
   compact-mode: true,
   heading-color: blue,
+  heading-font: "Ubuntu", // recommended alternatives: "Fira Sans", "Lato", "Source Sans Pro"
   body,
 ) = {
 
@@ -24,7 +25,7 @@
 
   let body-font = "Vollkorn"
   let body-size = 11pt
-  let heading-font = "Ubuntu"
+  // let heading-font = "Ubuntu"
 
   // heading font is used in this size for kind of "information blocks"
   let info-size = 10pt              
