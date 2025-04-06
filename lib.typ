@@ -11,7 +11,7 @@
   logo: none,
   language: "de",
   show-outline: true,
-  compact-mode: true,
+  compact-mode: false,
   heading-color: blue,
   heading-font: "Ubuntu", // recommended alternatives: "Fira Sans", "Lato", "Source Sans Pro"
   body,

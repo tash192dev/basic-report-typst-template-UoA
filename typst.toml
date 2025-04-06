@@ -1,6 +1,6 @@
 [package]
 name = "basic-report"
-version = "0.1.0"
+version = "0.2.0"
 entrypoint = "lib.typ"
 authors = ["Roland Schätzle <@roland-KA>"]
 license = "MIT"
@@ -8,7 +8,7 @@ description = "A simple template for reports"
 repository = "https://github.com/roland-KA/basic-report-typst-template"
 keywords = ["report", "non-fiction", "basic"]
 categories = ["paper", "report"]
-exclude = ["template/main.pdf"]
+exclude = ["template/main.pdf", "template/mainCompact.pdf"]
 
 [template]
 path = "template"
