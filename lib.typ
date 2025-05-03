@@ -166,6 +166,8 @@
         "Contenido"
       } else if language == "it" {
         "Indice"
+      } else if language == "nl" {
+        "Inhoud"
       } else if language == "pt" {
         "Índice"
       } else if language == "zh" {
