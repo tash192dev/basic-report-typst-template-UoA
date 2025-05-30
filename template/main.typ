@@ -1,5 +1,5 @@
 
-#import "@preview/basic-report:0.2.0": *
+#import "@preview/basic-report:0.3.0": *
 
 #show: it => basic-report(
   doc-category: "Betriebsanleitung",
