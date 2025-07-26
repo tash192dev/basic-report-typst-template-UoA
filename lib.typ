@@ -111,10 +111,18 @@
   set heading(numbering: "1.")
   show heading: set text(font: heading-font, fill: heading-color, 
       weight: if compact-mode {"bold"} else {"regular"})
+  show heading: set par(justify: false)
 
-  show heading.where(level: 1): it => {v(3.8 * body-size, weak: true) + block(it, height: 1.2 * body-size, sticky: true)}
-  show heading.where(level: 2): it => {v(0.8 * body-size) + block(it, height: 1.2 * body-size, sticky: true)}
-  show heading.where(level: 3): it => {v(0.8 * body-size) + block(it, height: 1 * body-size, sticky: true)}
+
+  show heading.where(level: 1): it => {
+    v(3.8 * body-size, weak: true) + text(it) + v(0.2 * body-size)
+  }
+  show heading.where(level: 2): it => {
+    v(0.8 * body-size) + text(it) + v(0.2 * body-size)
+  }
+  show heading.where(level: 3): it => {
+    v(0.8 * body-size) + text(it) + v(0.2 * body-size)
+  }
 
   set figure(numbering: "1")
   show figure.caption: it => {
