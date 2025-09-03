@@ -89,23 +89,15 @@
     // standard page with header
     paper: "a4",
     margin: (top: 2.5cm, left: 2cm, right: 2cm, bottom: 2.5cm),
-    header: context {
-      grid(
-        columns: (1fr, 1fr),
-        align: (left, right),
-        row-gutter: 0.5em,
-        text(font: heading-font, size: label-size, context { hydra(1, use-last: false, skip-starting: false) }),
-        text(font: heading-font, size: label-size, number-type: "lining", context {
-          if in-outline.get() {
-            counter(page).display("i") // roman page numbers for the TOC
-          } else {
-            counter(page).display("1") // arabic page numbers for the rest of the document
-          }
-        }),
-        grid.cell(colspan: 2, line(length: 100%, stroke: 0.5pt)),
-      )
+    header: context {align(center, text(font: heading-font, size: label-size, number-type: "lining", context {
+        if in-outline.get() {
+          counter(page).display("i") // roman page numbers for the TOC
+        } else {
+          counter(page).display("1") // arabic page numbers for the rest of the document
+        }
+      }))
     },
-    header-ascent: 1.5em,
+    // header-ascent: 1.5em,
     footer: context {
       align(center, text(font: heading-font, size: label-size, number-type: "lining", context {
         if in-outline.get() {
@@ -152,6 +144,7 @@
   // to detect, if inside or outside the outline (for different page numbers)
   show outline: it => {
     in-outline.update(true)
+    in-outline.update(true)
     it
     in-outline.update(false)
   }
@@ -162,7 +155,8 @@
     set text(font: heading-font, weight: "regular", size: info-size)
     link(
       it.element.location(), // make entry linkable
-      it.indented(it.prefix(), it.body() + box(width: 1fr) + strong(it.page())),
+      it.indented(it.prefix(), 
+      it.body() + "  " + box(width: 1fr, repeat([.], gap: 1pt)) + "  " + strong(it.page())),
     )
   }
 
@@ -178,6 +172,9 @@
       ),
     )
   }
+
+
+
 
   if (show-outline and not compact-mode) {
     outline(
@@ -208,7 +205,7 @@
     )
     counter(page).update(0) // so the first chapter starts at page 1 (now in arabic numbers)
   } else {
-    in-outline.update(false) // even if outline is not shown, we want to continue with arabic page numbers
+    in-outline.update(true) // even if outline is not shown, we want to continue with arabic page numbers
     counter(page).update(1)
   }
 
@@ -216,6 +213,21 @@
     pagebreak()
   }
 
+  // ----- List of figs ------------------------
+
+  outline(title: "List of Figures", target: figure.where(kind: image))
+
+    // top-level TOC entries in bold without filling
+  show outline.entry: it => {
+    set block(above: 2 * body-size)
+    set text(font: heading-font, weight: "regular", size: info-size)
+
+  }
+    counter(page).update(1)
+
+  if (not compact-mode) {
+    pagebreak()
+  }
   // ----- Body Text ------------------------
 
   if compact-mode {
