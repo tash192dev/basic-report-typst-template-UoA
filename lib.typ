@@ -36,7 +36,8 @@
   let info-size = 11pt              
   
   // heading font is used in this size for different sorts of labels            
-  let label-size = 9pt                          
+  let label-size = 10pt            
+
   let section-heading-size = 12pt // should be bold 
   let sub-heading = 11pt // shold be bold
   let sub-sub-heading = sub-heading // should be italics
@@ -117,7 +118,7 @@
 
   set figure(numbering: "1")
   show figure.caption: it => {
-    set text(font: heading-font, size: label-size)
+    set text(font: heading-font, size: label-size, style: "italic")
     block(it)
   }
 

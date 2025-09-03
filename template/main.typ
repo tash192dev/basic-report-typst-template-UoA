@@ -20,6 +20,7 @@
 #lorem(120)
 
 #lorem(150)
+#figure(image("assets/UoA-Logo-Primary-RGB-Large.png", width: 6cm), caption: [This is a figure caption]) 
 
 == Introduction Point
 
