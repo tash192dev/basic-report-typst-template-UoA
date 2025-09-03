@@ -8,8 +8,8 @@
   affiliation: "MouseTec, Entenhausen",
   logo: image("assets/aerospace-engineering.png", width: 2cm),
   // <a href="https://www.flaticon.com/free-icons/aerospace" title="aerospace icons">Aerospace icons created by gravisio - Flaticon</a>
-  language: "de",
-  compact-mode: true,
+  language: "en",
+  compact-mode: false,
   it
 )
 
