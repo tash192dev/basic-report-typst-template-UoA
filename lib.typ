@@ -89,7 +89,23 @@
     // standard page with header
     paper: "a4",
     margin: (top: 2.5cm, left: 2cm, right: 2cm, bottom: 2.5cm),
-
+    header: context {
+      grid(
+        columns: (1fr, 1fr),
+        align: (left, right),
+        row-gutter: 0.5em,
+        text(font: heading-font, size: label-size, context { hydra(1, use-last: false, skip-starting: false) }),
+        text(font: heading-font, size: label-size, number-type: "lining", context {
+          if in-outline.get() {
+            counter(page).display("i") // roman page numbers for the TOC
+          } else {
+            counter(page).display("1") // arabic page numbers for the rest of the document
+          }
+        }),
+        grid.cell(colspan: 2, line(length: 100%, stroke: 0.5pt)),
+      )
+    },
+    header-ascent: 1.5em,
     footer: context {
       align(center, text(font: heading-font, size: label-size, number-type: "lining", context {
         if in-outline.get() {
@@ -98,8 +114,8 @@
           counter(page).display("1") // arabic page numbers for the rest of the document
         }
       }))
-    },
-  )
+    }
+)
 
 
   // ----- Headings & Numbering Schemes ------------------------
