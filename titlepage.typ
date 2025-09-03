@@ -9,6 +9,8 @@
   author,
   affiliation,
   logo,
+  supervisor,
+  project-partner,
   heading-font,             // the heading-font is also used for all text on the titlepage
   heading-color,            // heading-color applies as well for the title
   info-size,                // used throughout the document for "info text"

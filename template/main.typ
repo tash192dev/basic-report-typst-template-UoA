@@ -1,5 +1,5 @@
 
-#import "@preview/basic-report:0.3.1": *
+#import "../lib.typ": *
 
 #show: it => basic-report(
   doc-category: "Betriebsanleitung",
@@ -7,7 +7,8 @@
   author: "Daniel Düsentrieb",
   affiliation: "MouseTec, Entenhausen",
   logo: image("assets/aerospace-engineering.png", width: 2cm),
-  // <a href="https://www.flaticon.com/free-icons/aerospace" title="aerospace icons">Aerospace icons created by gravisio - Flaticon</a>
+  supervisor: "Supervisor",
+  project-partner: "Proj partner",
   language: "en",
   compact-mode: false,
   it
