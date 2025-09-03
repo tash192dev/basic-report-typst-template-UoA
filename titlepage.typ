@@ -28,7 +28,7 @@
   // - the page uses a grid of 1.5 cm units
 
   // ----- Logo ------------------------
-  place(top + right,        // `place` so that the remaining layout is independent of the size of the logo
+  place(top + center,        // `place` so that the remaining layout is independent of the size of the logo
     logo,
   )
 
@@ -49,7 +49,7 @@
   set par(leading: 1em)  
   
   place(
-    bottom + left,
+    bottom + center,
     text(
       font: heading-font, weight: "regular", size: info-size, fill: black,
       datetime.today().display("[day].[month].[year]") + str("\n") + 
