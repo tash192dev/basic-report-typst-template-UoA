@@ -1,5 +1,7 @@
 #import "@preview/hydra:0.6.2": hydra
 #import "titlepage.typ": *
+#import "@preview/decasify:0.10.1": sentencecase
+
 
 // ----- Main Template Function: `basic-report` ----------------------
 
@@ -26,7 +28,7 @@
   set text(lang: language)
 
 
-  let body-font = "Vollkorn"
+  let body-font = "PT-Serrif"
   let body-size = 11pt
   // let heading-font = "Ubuntu"
 
@@ -35,7 +37,9 @@
   
   // heading font is used in this size for different sorts of labels            
   let label-size = 9pt                          
-  
+  let section-heading-size = 12pt // should be bold 
+  let sub-heading = 11pt // shold be bold
+  let sub-sub-heading = sub-heading // should be italics
   // are we inside or outside of the outline (for roman/arabic page numbers)?
   let in-outline = state("in-outline", if compact-mode {false} else {true})    
 
@@ -84,51 +88,31 @@
   set page(               // standard page with header
     paper: "a4",
     margin: (top: 2.5cm, left: 2cm, right: 2cm, bottom: 2.5cm),
-    // the header shows the main chapter heading on the left and the page number on the right
-    
-    // header: context {
-    //   if compact-mode and (counter(page).get().first() == 1) {
-    //     none
-    //   } else {
-    //     grid(
-    //       columns: (1fr, 1fr),
-    //       align: (left, right),
-    //       row-gutter: 0.5em,
-    //       text(font: heading-font, size: label-size,
-    //         context {hydra(1, use-last: false, skip-starting: false)},),
-    //       text(font: heading-font, size: label-size, 
-    //         number-type: "lining",
-    //         context {if in-outline.get() {
-    //             counter(page).display("i")      // roman page numbers for the TOC
-    //           } else {
-    //             counter(page).display("1")      // arabic page numbers for the rest of the document
-    //           }
-    //         }
-    //       ),
-    //       grid.cell(colspan: 2, line(length: 100%, stroke: 0.5pt)),
-    //     )
-    //   }
-    // },
-    // header-ascent: 1.5em
   )
 
   
   // ----- Headings & Numbering Schemes ------------------------
 
   set heading(numbering: "1.")
+  
   show heading: set text(font: heading-font, fill: heading-color, 
       weight: if compact-mode {"bold"} else {"regular"})
   show heading: set par(justify: false)
 
 
   show heading.where(level: 1): it => {
-    v(3.8 * body-size, weak: true) + text(it) + v(0.2 * body-size)
+    // set text(size: section-heading-size, weight: "regular")
+    // upper(text(it)) 
+    set text(size: section-heading-size, weight: "bold")
+    upper(text(it))
   }
-  show heading.where(level: 2): it => {
-    v(0.8 * body-size) + text(it) + v(0.2 * body-size)
+  show heading.where(level: 2): it => {     
+    set text(size: sub-heading, weight: "regular")
+    sentencecase(text(it)) // this should be sentence case but the template is missing it lol
   }
   show heading.where(level: 3): it => {
-    v(0.8 * body-size) + text(it) + v(0.2 * body-size)
+    set text(size: sub-heading, weight: "regular")
+    emph(sentencecase(text(it)))
   }
 
   set figure(numbering: "1")
@@ -145,7 +129,7 @@
     it
     in-outline.update(false)
   }
- 
+  
   // top-level TOC entries in bold without filling
   show outline.entry.where(level: 1): it => {
     set block(above: 2 * body-size)
@@ -196,7 +180,7 @@
       } else {
         "Table of Contents"
       },
-      indent: auto,
+      indent: auto, 
     )
     counter(page).update(0)     // so the first chapter starts at page 1 (now in arabic numbers)
   } else {

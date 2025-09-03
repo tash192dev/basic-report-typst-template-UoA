@@ -15,25 +15,25 @@
   it
 )
 
-= Einleitung
+= Introduction
 
 #lorem(120)
 
 #lorem(150)
 
-== Fluggeräte
+== Introduction Point
 
 #lorem(100)
 
-=== Raketen – Eine Übersicht
+=== Here for fun
 
 #lorem(80)
 
-= Dein erster Raketenstart
+= Foo Bar Baz
 
 #lorem(150)
 
-== Wie du in die Rakete einsteigst
+== Intel Quartus Prime 
 
 #lorem(90)
 
@@ -42,7 +42,7 @@
 #lorem(120)
 
 
-=== Die wichtigsten Knöpfe und Hebel
+=== Third level HEADING
 
 #lorem(50)
 
