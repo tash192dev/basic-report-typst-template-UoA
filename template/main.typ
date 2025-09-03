@@ -2,13 +2,14 @@
 #import "../lib.typ": *
 
 #show: it => basic-report(
-  doc-category: "Betriebsanleitung",
-  doc-title: "Raketenstart für Dummies",
-  author: "Daniel Düsentrieb",
-  affiliation: "MouseTec, Entenhausen",
-  logo: image("assets/aerospace-engineering.png", width: 2cm),
+  doc-category: "Category",
+  doc-title: "Deploying TinyML on Softcore on FPGA",
+  author: "Talha Ashraf",
+  affiliation: "Department of Electrical, Computer, and Software Engineering \nThe University of Auckland, Auckland, New Zealand",
+  logo: image("assets/UoA-Logo-Primary-RGB-Large.png", width: 6cm),
   supervisor: "Supervisor",
   project-partner: "Proj partner",
+  sponsor: "Sponsor",
   language: "en",
   compact-mode: false,
   it

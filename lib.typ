@@ -11,11 +11,12 @@
   logo: none,
   supervisor: none,
   project-partner: none,
+  sponsor: none,
   language: "de",
   show-outline: true,
   compact-mode: false,
   heading-color: blue,
-  heading-font: "Ubuntu", // recommended alternatives: "Fira Sans", "Lato", "Source Sans Pro"
+  heading-font: "PT-Serrif", // recommended alternatives: "Fira Sans", "Lato", "Source Sans Pro"
   body,
 ) = {
 
@@ -30,7 +31,7 @@
   // let heading-font = "Ubuntu"
 
   // heading font is used in this size for kind of "information blocks"
-  let info-size = 10pt              
+  let info-size = 11pt              
   
   // heading font is used in this size for different sorts of labels            
   let label-size = 9pt                          
@@ -50,6 +51,7 @@
       logo,
       supervisor,
       project-partner,
+      sponsor,
       heading-font,
       heading-color,
       info-size,
