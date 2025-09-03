@@ -19,7 +19,7 @@
   // ----- Page-Setup ------------------------
   set page(
     paper: "a4",
-    margin: (top: 3cm, left: 2cm, right: 2cm, bottom: 4.5cm),
+    margin: (top: 2.5cm, left: 2cm, right: 2cm, bottom: 2.5cm),
   )
   let title-font-size = 28pt
   let other-font-size = 16pt
@@ -76,18 +76,7 @@
   )
   v(5cm)
 
-  // place(
-  //   center,
-  //   text(font: heading-font, weight: "bold", size: 14pt, "Supervisor: " + supervisor),
-  // )
-  // v(1cm)
-  // place(
-  //   center,
-  //   text(font: heading-font, weight: "bold", size: 14pt, "Project Partner: " + project-partner),
-  // )
-  // v(1cm)
-
-  // ----- Info Block ------------------------
+  // ----- Affiliates Block ------------------------
   let project_affiliates = none
 
   if (sponsor == none) {

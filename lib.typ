@@ -15,7 +15,7 @@
   language: "de",
   show-outline: true,
   compact-mode: false,
-  heading-color: blue,
+  heading-color: black,
   heading-font: "PT-Serrif", // recommended alternatives: "Fira Sans", "Lato", "Source Sans Pro"
   body,
 ) = {
@@ -83,32 +83,33 @@
   //     header with height ≈ 0.6cm is visually part of text block --> top margin = 3cm + 0.6cm
   set page(               // standard page with header
     paper: "a4",
-    margin: (top: 3.6cm, left: 4.5cm, right: 3cm, bottom: 3cm),
+    margin: (top: 2.5cm, left: 2cm, right: 2cm, bottom: 2.5cm),
     // the header shows the main chapter heading on the left and the page number on the right
-    header: context {
-      if compact-mode and (counter(page).get().first() == 1) {
-        none
-      } else {
-        grid(
-          columns: (1fr, 1fr),
-          align: (left, right),
-          row-gutter: 0.5em,
-          text(font: heading-font, size: label-size,
-            context {hydra(1, use-last: false, skip-starting: false)},),
-          text(font: heading-font, size: label-size, 
-            number-type: "lining",
-            context {if in-outline.get() {
-                counter(page).display("i")      // roman page numbers for the TOC
-              } else {
-                counter(page).display("1")      // arabic page numbers for the rest of the document
-              }
-            }
-          ),
-          grid.cell(colspan: 2, line(length: 100%, stroke: 0.5pt)),
-        )
-      }
-    },
-    header-ascent: 1.5em
+    
+    // header: context {
+    //   if compact-mode and (counter(page).get().first() == 1) {
+    //     none
+    //   } else {
+    //     grid(
+    //       columns: (1fr, 1fr),
+    //       align: (left, right),
+    //       row-gutter: 0.5em,
+    //       text(font: heading-font, size: label-size,
+    //         context {hydra(1, use-last: false, skip-starting: false)},),
+    //       text(font: heading-font, size: label-size, 
+    //         number-type: "lining",
+    //         context {if in-outline.get() {
+    //             counter(page).display("i")      // roman page numbers for the TOC
+    //           } else {
+    //             counter(page).display("1")      // arabic page numbers for the rest of the document
+    //           }
+    //         }
+    //       ),
+    //       grid.cell(colspan: 2, line(length: 100%, stroke: 0.5pt)),
+    //     )
+    //   }
+    // },
+    // header-ascent: 1.5em
   )
 
   
@@ -148,7 +149,7 @@
   // top-level TOC entries in bold without filling
   show outline.entry.where(level: 1): it => {
     set block(above: 2 * body-size)
-    set text(font: heading-font, weight: "bold", size: info-size)
+    set text(font: heading-font, weight: "regular", size: info-size)
     link(
       it.element.location(),    // make entry linkable
       it.indented(it.prefix(), it.body() + box(width: 1fr,) +  strong(it.page()))
@@ -164,7 +165,7 @@
       it.indented(
           it.prefix(),
           it.body() + "  " +
-            box(width: 1fr, repeat([.], gap: 2pt)) +
+            box(width: 1fr, repeat([.], gap: 1pt)) +
             "  " + it.page()
       )
     )
@@ -193,7 +194,7 @@
       } else if language == "ar" {
         "المحتويات"
       } else {
-        "Contents"
+        "Table of Contents"
       },
       indent: auto,
     )
