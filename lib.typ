@@ -46,7 +46,7 @@
   // ----- Title Page ------------------------
 
   if (not compact-mode) {
-    counter(page).update(0) // so TOC after titlepage begins with page no 1 (roman)
+    counter(page).update(0) // Start page numbering at 1 for the title page
     titlepage(
       doc-category,
       doc-title,
@@ -89,15 +89,6 @@
     // standard page with header
     paper: "a4",
     margin: (top: 2.5cm, left: 2cm, right: 2cm, bottom: 2.5cm),
-    header: context {align(center, text(font: heading-font, size: label-size, number-type: "lining", context {
-        if in-outline.get() {
-          counter(page).display("i") // roman page numbers for the TOC
-        } else {
-          counter(page).display("1") // arabic page numbers for the rest of the document
-        }
-      }))
-    },
-    // header-ascent: 1.5em,
     footer: context {
       align(center, text(font: heading-font, size: label-size, number-type: "lining", context {
         if in-outline.get() {
@@ -106,8 +97,8 @@
           counter(page).display("1") // arabic page numbers for the rest of the document
         }
       }))
-    }
-)
+    },
+  )
 
 
   // ----- Headings & Numbering Schemes ------------------------
@@ -144,7 +135,7 @@
   // to detect, if inside or outside the outline (for different page numbers)
   show outline: it => {
     in-outline.update(true)
-    in-outline.update(true)
+
     it
     in-outline.update(false)
   }
@@ -155,8 +146,7 @@
     set text(font: heading-font, weight: "regular", size: info-size)
     link(
       it.element.location(), // make entry linkable
-      it.indented(it.prefix(), 
-      it.body() + "  " + box(width: 1fr, repeat([.], gap: 1pt)) + "  " + strong(it.page())),
+      it.indented(it.prefix(), it.body() + "  " + box(width: 1fr, repeat([.], gap: 1pt)) + "  " + strong(it.page())),
     )
   }
 
@@ -174,9 +164,8 @@
   }
 
 
-
-
   if (show-outline and not compact-mode) {
+    in-outline.update(true) // Set in-outline to true for TOC
     outline(
       title: if language == "de" {
         "Inhalt"
@@ -203,31 +192,27 @@
       },
       indent: auto,
     )
-    counter(page).update(0) // so the first chapter starts at page 1 (now in arabic numbers)
-  } else {
-    in-outline.update(true) // even if outline is not shown, we want to continue with arabic page numbers
-    counter(page).update(1)
-  }
-
-  if (not compact-mode) {
-    pagebreak()
   }
 
   // ----- List of figs ------------------------
+  pagebreak()
 
+  in-outline.update(true) // Set in-outline to true for List of Figures
   outline(title: "List of Figures", target: figure.where(kind: image))
 
-    // top-level TOC entries in bold without filling
+  // top-level TOC entries in bold without filling
   show outline.entry: it => {
     set block(above: 2 * body-size)
     set text(font: heading-font, weight: "regular", size: info-size)
-
   }
-    counter(page).update(1)
 
   if (not compact-mode) {
     pagebreak()
   }
+  // Ensure outline pages use roman numerals but the main body starts at arabic 1
+  in-outline.update(false)
+  counter(page).update(1)
+
   // ----- Body Text ------------------------
 
   if compact-mode {

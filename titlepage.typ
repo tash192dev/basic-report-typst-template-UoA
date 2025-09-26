@@ -24,6 +24,7 @@
   let title-font-size = 28pt
   let other-font-size = 16pt
   let affiliation-font-size = 13pt
+  let abstract = "This is the body of the abstrct"
 
   // Some basic rules for the title page layout:
   // - logo is right-justified
@@ -96,6 +97,18 @@
       project_affiliates
     ),
   )
+  // add abstract to next page 
+pagebreak()
+ place(
+    left,
+    text(font: heading-font, weight: "bold", size: 12pt, "ABSTRACT"),
+  )  
+  v(1cm)
+  place(
+    left,
+    text(font: heading-font, weight: "regular", size: 11pt, abstract),
+  )  
+  pagebreak()
 }
 
 // ===== COMPACT TITLE: `compact-title` ====================

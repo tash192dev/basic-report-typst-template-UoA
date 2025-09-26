@@ -4,7 +4,7 @@
 #show: it => basic-report(
   doc-category: "Category",
   doc-title: "Deploying TinyML on Softcore on FPGA",
-  author: "Talha Ashraf",
+  author: "Author ",
   affiliation: "Department of Electrical, Computer, and Software Engineering \nThe University of Auckland, Auckland, New Zealand",
   logo: image("assets/UoA-Logo-Primary-RGB-Large.png", width: 6cm),
   supervisor: "Supervisor",
@@ -15,6 +15,8 @@
   it
 )
 
+#set page(numbering: "1 / 1")
+#counter(page).update(1)
 = Introduction 
 
 #lorem(120)
